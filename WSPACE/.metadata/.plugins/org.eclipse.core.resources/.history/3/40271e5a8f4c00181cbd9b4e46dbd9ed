@@ -1,0 +1,229 @@
+package de.parti.tut.listener;
+
+import java.util.ArrayList;
+
+import org.bukkit.Location;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntitySpawnEvent;
+import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
+import org.bukkit.event.player.PlayerBucketEmptyEvent;
+import org.bukkit.event.player.PlayerBucketEvent;
+import org.bukkit.event.player.PlayerBucketFillEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerShearEntityEvent;
+
+import de.parti.tut.main.Plots;
+
+public class PlotsListener implements Listener {
+	
+	@EventHandler
+	public void onBlockBreak(BlockBreakEvent e1) {
+		Player p = e1.getPlayer();
+		Location loc = e1.getBlock().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e1.setCancelled(true);
+				p.sendMessage("Du darfst hier nicht bauen.");;
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onBlockPlace(BlockPlaceEvent e2) {
+		Player p = e2.getPlayer();
+		Location loc = e2.getBlock().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e2.setCancelled(true);
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onBucketEmpty(PlayerBucketEmptyEvent e3) {
+		Player p = e3.getPlayer();
+		Location loc = e3.getBlockClicked().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e3.setCancelled(true);
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onBucketFill(PlayerBucketFillEvent e3) {
+		Player p = e3.getPlayer();
+		Location loc = e3.getBlockClicked().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e3.setCancelled(true);
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onASManipulate(PlayerArmorStandManipulateEvent e3) {
+		Player p = e3.getPlayer();
+		Location loc = e3.getPlayer().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e3.setCancelled(true);
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onInteract(PlayerInteractEvent e3) {
+		Player p = e3.getPlayer();
+		Location loc = e3.getClickedBlock().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e3.setCancelled(true);
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onInteractEntity(PlayerInteractEntityEvent e3) {
+		Player p = e3.getPlayer();
+		Location loc = e3.getPlayer().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e3.setCancelled(true);
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onShearEntity(PlayerShearEntityEvent e3) {
+		Player p = e3.getPlayer();
+		Location loc = e3.getEntity().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		//System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		//System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			//System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				//System.out.println("playerchunks contains true");
+			} else {
+				e3.setCancelled(true);
+				//System.out.println("playerchunks contains false");
+			}
+		} 
+	}
+	
+	@EventHandler
+	public void onEntityDamageByEntity(EntityDamageByEntityEvent e3) {
+		if(e3.getDamager() instanceof Player) {
+			Player p = (Player) e3.getDamager();
+			Location loc = e3.getEntity().getLocation();
+			ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+			//System.out.println("overallChunkdebug: " + overallchunks.toString());
+			ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+			int x = loc.getChunk().getX();
+			int z = loc.getChunk().getZ();
+			String chunk = x + "," + z + ";";
+			//System.out.println("Chunkdebug: " + chunk);
+			if(overallchunks.contains(chunk)) {
+				//System.out.println("allchunks contains true");
+				if(playerchunks.contains(chunk)) {
+					//System.out.println("playerchunks contains true");
+				} else {
+					e3.setCancelled(true);
+					p.sendMessage("Du darfst das hier nicht hauen!");
+					//System.out.println("playerchunks contains false");
+				}
+			} 
+		}
+		
+	}
+
+}

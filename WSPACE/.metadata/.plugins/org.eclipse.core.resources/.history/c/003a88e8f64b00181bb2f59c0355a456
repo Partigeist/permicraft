@@ -1,0 +1,38 @@
+package de.parti.tut.listener;
+
+import java.util.ArrayList;
+
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+
+import de.parti.tut.main.Plots;
+
+public class PlotsListener implements Listener {
+	
+	@EventHandler
+	public void onBlockset(BlockBreakEvent e1) {
+		Player p = e1.getPlayer();
+		Location loc = e1.getBlock().getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		System.out.println("overallChunkdebug: " + overallchunks.toString());
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				System.out.println("playerchunks contains true");
+			} else {
+				e1.setCancelled(true);
+				System.out.println("playerchunks contains false");
+			}
+		} else 
+			System.out.println("allchunks contains false");
+	}
+
+}

@@ -1,0 +1,5 @@
+package de.parti.tut.playerstats.listener;
+
+public class PlayerFirstJoinListener {
+
+}

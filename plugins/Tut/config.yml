@@ -1,0 +1,32 @@
+GS:
+  baum:
+    gsname: baum
+    owner: partigeist
+    chunks: -10,38;
+    home:
+      x: -145.0
+      y: 101.0
+      z: 611.0
+      world: world
+    members: Partigeist;
+  plotlist: baum;test;perm;
+  test:
+    gsname: test
+    owner: partigeist
+    chunks: -12,40;
+    home:
+      x: -191.0
+      y: 106.0
+      z: 648.0
+      world: world
+    members: Partigeist;
+  perm:
+    gsname: perm
+    owner: partigeist
+    chunks: -18,44;
+    home:
+      x: -288.0
+      y: 72.0
+      z: 715.0
+      world: world
+    members: Partigeist;

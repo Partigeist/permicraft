@@ -1,0 +1,28 @@
+2018-04-24 11:17:41,236 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-24 22:31:01,351 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-26 13:11:41,013 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-29 11:04:13,921 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-29 21:24:15,707 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-30 16:53:17,410 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-30 17:48:28,449 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-01 00:07:14,886 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-01 13:31:42,184 [Worker-58] ERROR o.e.r.s.GitSnippetRepository - Transport operation failed.
+org.eclipse.jgit.api.errors.TransportException: http://git.eclipse.org/gitroot/recommenders/org.eclipse.recommenders.snipmatch.snippets.git: Redirection blocked: redirect http://git.eclipse.org/gitroot/recommenders/org.eclipse.recommenders.snipmatch.snippets.git/ -> http://fritz.box/tools/kids_not_allowed.lua?account=default-192.168.178.35 not allowed
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:250) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	at org.eclipse.recommenders.snipmatch.GitSnippetRepository.fetch(GitSnippetRepository.java:198) ~[org.eclipse.recommenders.snipmatch_2.5.0.v20171201-1623.jar:na]
+	at org.eclipse.recommenders.snipmatch.GitSnippetRepository.open(GitSnippetRepository.java:91) ~[org.eclipse.recommenders.snipmatch_2.5.0.v20171201-1623.jar:na]
+	at org.eclipse.recommenders.internal.snipmatch.rcp.EclipseGitSnippetRepository$2.run(EclipseGitSnippetRepository.java:165) [org.eclipse.recommenders.snipmatch.rcp_2.5.0.v20171201-1623.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56) [org.eclipse.core.jobs_3.9.2.v20171030-1027.jar:na]
+Caused by: org.eclipse.jgit.errors.TransportException: http://git.eclipse.org/gitroot/recommenders/org.eclipse.recommenders.snipmatch.snippets.git: Redirection blocked: redirect http://git.eclipse.org/gitroot/recommenders/org.eclipse.recommenders.snipmatch.snippets.git/ -> http://fritz.box/tools/kids_not_allowed.lua?account=default-192.168.178.35 not allowed
+	at org.eclipse.jgit.transport.TransportHttp.redirect(TransportHttp.java:732) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:554) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	at org.eclipse.jgit.transport.TransportHttp.openFetch(TransportHttp.java:341) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:137) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:123) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1236) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:239) ~[org.eclipse.jgit_4.9.2.201712150930-r.jar:4.9.2.201712150930-r]
+	... 4 common frames omitted
+2018-05-02 19:12:44,189 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-03 22:04:08,466 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-04 23:39:55,062 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-05 00:43:36,783 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -1,0 +1,30 @@
+package de.parti.tut.commands;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import de.parti.tut.main.Plots;
+import net.minecraft.server.v1_12_R1.CommandExecute;
+
+public class PlotsTestCommand implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(sender instanceof Player) {
+			Player p = (Player) sender;
+			if(args.length == 2) {
+				if(args[0].toString().equals("cl")) {
+					p.sendMessage(Plots.getChunksList(args[1]).toString());
+				} else {
+					p.sendMessage("Bitte nutze /gstest <cl> <plotname>");
+					p.sendMessage(args[0]);
+				}
+			} else
+				p.sendMessage("Bitte nutze zwei Argumente. Developer fragen. Dies ist ein Testcmd.");
+		}
+		return false;
+	}
+
+}

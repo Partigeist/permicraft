@@ -1,0 +1,40 @@
+package de.parti.tut.listener;
+
+import java.util.ArrayList;
+
+import org.bukkit.Chunk;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
+
+import de.parti.tut.main.Plots;
+
+public class BlockPlaceListener implements Listener {
+	
+	@EventHandler
+	public void onBlockPlace(BlockPlaceEvent e) {
+		Player p = e.getPlayer();
+		p.sendMessage("Du hast einen Block platziert");
+		Location loc = p.getLocation();
+		ArrayList<String> overallchunks = Plots.getOverallChunkslist();
+		ArrayList<String> playerchunks = Plots.getChunksOfPlayerList(p.getName());
+		int x = loc.getChunk().getX();
+		int z = loc.getChunk().getZ();
+		String chunk = x + "," + z + ";";
+		System.out.println("Chunkdebug: " + chunk);
+		if(overallchunks.contains(chunk)) {
+			System.out.println("allchunks contains true");
+			if(playerchunks.contains(chunk)) {
+				System.out.println("playerchunks contains true");
+			} else {
+				e.setCancelled(true);
+				System.out.println("playerchunks contains false");
+			}
+		} else 
+			System.out.println("allchunks contains false");
+		e.setCancelled(true);
+	}
+
+}

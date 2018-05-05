@@ -1,0 +1,28 @@
+package de.parti.tut.commands;
+
+import org.bukkit.Location;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import de.parti.tut.main.Plots;
+
+public class PlotsChunkRemoveCommand implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(sender instanceof Player) {
+			Player p = (Player) sender;
+			Location loc = p.getLocation();
+			String plotname = Plots.getPlotofChunk(loc.getChunk().getX(), loc.getChunk().getZ());
+			String chunkS = (loc.getChunk().getX() + "," + loc.getChunk().getZ() + ";");
+			if(Plots.isMember(p.getName(), plotname)) {
+				Plots.RemoveChunk(plotname, chunkS);
+			} else
+				p.sendMessage("Du hast keine Rechte, diesen Chunk zu löschen. " + p.getName());			
+		}
+		return false;
+	}
+
+}

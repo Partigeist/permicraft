@@ -1,0 +1,74 @@
+package de.parti.tut.main;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import de.parti.tut.commands.ChunkInfoCommand;
+import de.parti.tut.commands.GamemodeCommand;
+import de.parti.tut.commands.HealCommand;
+import de.parti.tut.commands.ItemsCommand;
+import de.parti.tut.commands.PlotsCommand;
+import de.parti.tut.commands.PlotsHomeCommand;
+import de.parti.tut.commands.PlotsMemberAddCommand;
+import de.parti.tut.commands.PlotsSetHomeCommand;
+import de.parti.tut.commands.PlotsTestCommand;
+import de.parti.tut.commands.PlotsInfo;
+import de.parti.tut.commands.SetSpawnCommand;
+import de.parti.tut.commands.SpawnCommand;
+import de.parti.tut.listener.BedListener;
+import de.parti.tut.listener.BlockPlaceListener;
+import de.parti.tut.listener.JoinListener;
+import de.parti.tut.listener.TestListener;
+
+public class Main extends JavaPlugin {
+	
+	private static Main plugin;
+	
+	public void onEnable() {
+		
+		plugin = this;
+		
+		writeText("baum");		//test
+		writeText("Pfosten");	//test
+		
+		//Commands registrieren
+		getCommand("heal").setExecutor(new HealCommand());
+		getCommand("backpack").setExecutor(new ItemsCommand());
+		getCommand("setspawn").setExecutor(new SetSpawnCommand());
+		getCommand("spawn").setExecutor(new SpawnCommand());
+		getCommand("chunkinfo").setExecutor(new ChunkInfoCommand());
+		getCommand("gscreate").setExecutor(new PlotsCommand());
+		getCommand("gshome").setExecutor(new PlotsHomeCommand());
+		getCommand("gssethome").setExecutor(new PlotsSetHomeCommand());
+		getCommand("gm").setExecutor(new GamemodeCommand());
+		getCommand("gsmemberadd").setExecutor(new PlotsMemberAddCommand());
+		getCommand("gsinfo").setExecutor(new PlotsInfo());
+		getCommand("gstest").setExecutor(new PlotsTestCommand());
+		
+		//Events registrieren
+		PluginManager pm = Bukkit.getPluginManager();
+		
+		pm.registerEvents(new JoinListener(), this);
+		pm.registerEvents(new BedListener(), this);
+		pm.registerEvents(new TestListener(), this);
+		pm.registerEvents(new BlockPlaceListener(), this);
+		
+	}
+	
+	public void writeText(String input) {
+		System.out.println(input);
+	}
+	
+	public void rofl() {
+		
+	}
+	
+	public static Main getPlugin() {
+		return plugin;
+	}
+
+}

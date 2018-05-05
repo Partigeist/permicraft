@@ -1,0 +1,45 @@
+package de.parti.tut.commands;
+
+import java.util.ArrayList;
+
+import org.bukkit.Location;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import de.parti.tut.main.Plots;
+
+public class PlotsChunkAdd implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(sender instanceof Player) {
+			Player p = (Player) sender;
+			Location loc = p.getLocation();
+			int x = loc.getChunk().getX();
+			int z = loc.getChunk().getZ();
+			String chunk = x + "," + z + ";";
+			ArrayList<String> chunks = Plots.getChunksOfPlayerList(p.getName());
+			System.out.println(chunks.toString());
+			ArrayList<String> neighbors = Plots.getNeighbors(loc.getChunk().getX(), loc.getChunk().getZ());
+			if(chunks.contains(neighbors.get(0))) {
+				Plots.AddChunk(neighbors.get(0), chunk);
+			} else {
+				if(chunks.contains(neighbors.get(1))) {
+					Plots.AddChunk(neighbors.get(1), chunk);
+				} else {
+					if(chunks.contains(neighbors.get(2))) {
+						Plots.AddChunk(neighbors.get(2), chunk);
+					} else {
+						if(chunks.contains(neighbors.get(3))) {
+							Plots.AddChunk(neighbors.get(3), chunk);
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+}

@@ -1,0 +1,27 @@
+name: Tut
+version: 0.1
+main: de.parti.tut.main.Main
+
+commands:
+   heal:
+      description: Heile den Spieler
+   backpack:
+      description: Oeffne einen Rucksack
+   setspawn:
+      description: Setze den Spawn
+   spawn:
+      description: Teleportiere den Spieler zum Spawn
+   chunkinfo:
+      description: Gebe den Chunk des Spielers aus
+   gscreate:
+      description: gs erstellen
+   gshome:
+      description: gshome porten
+   gssethome:
+      description: gshome setzen
+   gm:
+      description: gamemode
+   gsmemberadd:
+      description: gsmember zufuegen;
+   gstest:
+      description: Gibt Informationen über ein GS aus

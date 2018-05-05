@@ -1,0 +1,58 @@
+package de.parti.tut.commands;
+
+import java.util.ArrayList;
+
+import org.bukkit.Location;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import de.parti.tut.main.Plots;
+import net.minecraft.server.v1_12_R1.CommandExecute;
+
+public class PlotsTestCommand implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(sender instanceof Player) {
+			Player p = (Player) sender;
+			Location loc = p.getLocation();
+			if(args.length > 0) {
+				switch (args[0].toString()) {
+				case "cl":
+					p.sendMessage(Plots.getChunksList(args[1]).toString());
+					break;
+				case "ocl":
+					p.sendMessage(Plots.getOverallChunkslist().toString());
+					break;
+				case "list":
+					p.sendMessage(Plots.getGSlist().toString());
+					break;
+				case "clp":
+					p.sendMessage(Plots.getChunksOfPlayerList(args[1]).toString());
+					break;
+				case "poc"://Plotname des Chunks
+					p.sendMessage(Plots.getPlotofChunk(loc.getChunk().getX(), loc.getChunk().getZ()));
+					break;
+				case "zoc"://Z-Koordinate des Chunks
+					p.sendMessage(String.valueOf(Plots.getZofChunkS(loc.getChunk().getX() + "," + loc.getChunk().getZ() + ";")));
+					break;
+				case "pon"://Plotname der benachbarten Chunks, falls sie zu einem Plot gehören
+					ArrayList<String> n = Plots.getNeighbors(loc.getChunk().getX(), loc.getChunk().getZ());
+					String chunkS = Plots.ChunktoString(loc.getChunk());
+					p.sendMessage("Liste der neighbors: " + n.toString());
+					System.out.println(n.toString());
+					System.out.println(chunkS);
+					break;
+				default:
+					p.sendMessage("Bitte nutze /gstest cl <plotname>;ocl;list;clp;poc;zoc;pon");
+					break;
+				}
+			} else
+				p.sendMessage("Developer fragen. Dies ist ein Testcmd.");
+		}
+		return false;
+	}
+
+}
